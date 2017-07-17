@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from config import mypass
+from config import myuser, mypass, myrooms
 from pytz import timezone
 from datetime import datetime, timedelta
 from exchangelib import DELEGATE, IMPERSONATION, Account, Credentials, ServiceAccount, \
@@ -9,10 +9,10 @@ from exchangelib import DELEGATE, IMPERSONATION, Account, Credentials, ServiceAc
 
 # Username in WINDOMAIN\username format. Office365 wants usernames in PrimarySMTPAddress
 # ('myusername@example.com') format. UPN format is also supported.
-credentials = Credentials(username='AD\\nils', password=mypass)
+credentials = Credentials(username=myuser, password=mypass)
 config = Configuration(server='mail.surfnet.nl', credentials=credentials)
 
-rooms = [ 'kamer3.1@surf.nl', 'kamer3.5@surf.nl' ]
+rooms = myrooms
 
 accounts = []
 for room in rooms:
